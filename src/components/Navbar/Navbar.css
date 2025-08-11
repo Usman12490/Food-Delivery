@@ -1,0 +1,258 @@
+.navbar{
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo{
+    width: 150px;
+}
+
+.navbar-menu{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: #49557e;
+    font-size: 18px;
+}
+
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navbar button{
+    background: transparent;
+    font-size: 16px;
+    color: #49557e;
+    border: 1px solid tomato;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+
+.navbar button:hover{
+    background-color: #fff4f2;
+}
+
+.navbar .active{
+    padding-bottom: 2px ;
+    border-bottom: 2px solid #49557e;
+
+}
+
+.navbar li{
+    cursor: pointer;
+}
+
+.navbar-search-icon{
+    position: relative;
+}
+
+.navbar-search-icon .dot{
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: tomato;
+    top: -8px;
+    right: -8px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.dark-mode-toggle {
+    background: transparent !important;
+    border: none !important;
+    font-size: 20px !important;
+    cursor: pointer;
+    padding: 8px !important;
+    border-radius: 50% !important;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    background-color: rgba(255, 149, 0, 0.1) !important;
+}
+
+/* Dark mode styles */
+.navbar.dark {
+    background-color: #1a1a1a;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.navbar.dark .navbar-menu {
+    color: #e0e0e0;
+}
+
+.navbar.dark .navbar-menu li:hover {
+    color: #ff9500;
+}
+
+.navbar.dark .navbar-menu li.active {
+    color: #ff9500;
+}
+
+.navbar.dark .navbar-right button {
+    color: #e0e0e0;
+    border-color: #ff9500;
+}
+
+.navbar.dark .navbar-right button:hover {
+    background-color: #ff9500;
+    color: white;
+}
+
+.navbar.dark .navbar-right img {
+    filter: brightness(0) saturate(100%) invert(87%) sepia(6%) saturate(123%) hue-rotate(314deg) brightness(91%) contrast(87%);
+}
+
+/* Global dark mode styles for body */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* You can extend this for other components */
+body.dark-mode * {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+@media (max-width:1050px) {
+    .navbar .logo{
+        width: 140px;
+
+    }
+    .navbar-menu{
+        gap: 20px;
+        font-size: 17px;
+    }
+    .navbar-right{
+        gap: 30px;
+    }
+    .navbar-right img{
+        width: 22px;
+    }
+    .navbar-right button{
+        padding: 8px 25px;
+    }
+    
+}
+
+
+@media (max-width:900px) {
+    .navbar .logo{
+        width: 120px;
+
+    }
+    .navbar-menu{
+        gap: 15px;
+        font-size: 16px;
+    }
+    .navbar-right{
+        gap: 20px;
+    }
+    .navbar-right img{
+        width: 20px;
+    }
+    .navbar-right button{
+        padding: 7px 20px;
+        font-size: 16px;
+    }
+    
+}
+
+/* Popup overlay styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Popup content container */
+.popup-content {
+    position: relative;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+/* Close button */
+.close-button {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+    background-color: #cc0000;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: scale(0.8) translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Dark mode support for popup */
+.navbar.dark .popup-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width:750px) {
+    
+    .navbar-menu{
+        display: none;
+   
+}
+}
